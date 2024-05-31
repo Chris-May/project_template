@@ -1,0 +1,12 @@
+[run]
+branch = True
+omit =
+    tests/conftest.py
+
+[report]
+exclude_also =
+    pragma: no cover
+    if (typing\.)?TYPE_CHECKING:
+    def __repr__
+    if __name__ == .__main__.:
+    @(abc\.)?abstractmethod
