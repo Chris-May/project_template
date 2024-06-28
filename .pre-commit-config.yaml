@@ -5,6 +5,12 @@ repos:
     -   id: check-yaml
     -   id: end-of-file-fixer
     -   id: trailing-whitespace
+
+-   repo: https://github.com/mxr/sync-pre-commit-deps
+    rev: v0.0.1
+    hooks:
+    -   id: sync-pre-commit-deps
+
 -   repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.3.4
     hooks:
