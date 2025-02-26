@@ -1,4 +1,5 @@
 {
+  "project_name": "my_package",
   "package_name": "my_package",
   "virtualenv_prompt": "{{ cookiecutter.package_name.lower() }}",
   "_copy_without_render": [
