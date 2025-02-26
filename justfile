@@ -1,24 +1,23 @@
-#!/opt/homebrew/bin/just just --justfile
+#!/usr/bin/env just --justfile
+
+set dotenv-load := true
 
 default:
   just --list
 
 lint:
-  ruff check . --watch --fix
+  pre-commit run ruff -a
 
 setup: && sync-dependencies
-  pip install pip-tools
-  pre-commit install
+  uv venv --prompt {{project}}
+  uv sync
 
 
 sync-dependencies:
-  pip-compile requirements.in
-  pip-compile dev-requirements.in
-  pip-sync requirements.txt dev-requirements.txt
-  pip install -e .
+  uv sync
 
 upgrade-dep dependency:
- pip-compile requirements.in --upgrade-package {{dependency}}
+  uv upgrade {{dependency}}
 
 kind := 'report'
 
