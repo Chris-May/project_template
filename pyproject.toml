@@ -7,6 +7,7 @@ requires-python = '==3.13.*'
 [project.dependency-groups]
 dev = [
     'pytest',
+    'pre-commit',
 ]
 
 #[project.scripts]
