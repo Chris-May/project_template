@@ -9,15 +9,17 @@ lint:
   pre-commit run ruff -a
 
 setup: && sync-dependencies
-  uv venv --prompt {{project}}
+  uv venv --prompt {{cookiecutter.virtualenv_name}}
   uv sync
 
 
 sync-dependencies:
   uv sync
 
+{% raw %}
 upgrade-dep dependency:
   uv upgrade {{dependency}}
+{% endraw %}
 
 kind := 'report'
 
