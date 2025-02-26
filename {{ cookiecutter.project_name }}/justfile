@@ -8,10 +8,12 @@ default:
 lint:
   pre-commit run ruff -a
 
-setup: && sync-dependencies
-  uv venv --prompt {{cookiecutter.virtualenv_name}}
+bootstrap: && sync-dependencies pre-commit-install
+  uv venv --prompt {{cookiecutter.virtualenv_prompt}}
   uv sync
 
+pre-commit-install:
+  uv run pre-commit install
 
 sync-dependencies:
   uv sync
